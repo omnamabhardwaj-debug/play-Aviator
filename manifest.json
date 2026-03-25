@@ -1,0 +1,14 @@
+{
+  "name": "Play Aviator – 51 Games",
+  "short_name": "PlayAviator",
+  "description": "51 Aviator Games ek jagah – India ka #1 directory",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050810",
+  "theme_color": "#ff3c3c",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff3c3c">
+<meta name="description" content="51 Aviator Games ek jagah – India ka #1 gaming directory. Website link aur APK dono available.">
+<title>Play Aviator – 51 Games Ek Jagah ✈</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #050810;
+  --bg2: #080d1a;
+  --accent: #ff3c3c;
+  --gold: #ffd700;
+  --blue: #00c6ff;
+  --green: #00e676;
+  --purple: #b060ff;
+  --glow: #ff3c3c66;
+  --card: #0d1528;
+  --card2: #0a1020;
+  --border: #1a2a4a;
+  --text: #e0e8ff;
+  --muted: #6a7fa8;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Stars */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background: radial-gradient(1px 1px at 12% 18%, #fff3, transparent),
+    radial-gradient(1px 1px at 33% 62%, #fff2, transparent),
+    radial-gradient(1px 1px at 55% 8%,  #fff2, transparent),
+    radial-gradient(1px 1px at 72% 85%, #fff3, transparent),
+    radial-gradient(1px 1px at 88% 42%, #fff2, transparent),
+    radial-gradient(1px 1px at 22% 93%, #fff2, transparent),
+    radial-gradient(1px 1px at 78% 12%, #fff3, transparent),
+    radial-gradient(2px 2px at 44% 57%, #fff2, transparent),
+    radial-gradient(1px 1px at 61% 38%, #fff2, transparent),
+    radial-gradient(1px 1px at 5%  50%, #fff1, transparent),
+    radial-gradient(1px 1px at 95% 70%, #fff1, transparent);
+  pointer-events:none; z-index:0;
+}
+
+/* ── PWA INSTALL BANNER ── */
+#installBanner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: linear-gradient(90deg, #0d1528ee, #1a0d0dee);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--accent);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+.install-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.install-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 8px var(--accent));
+  animation: shake 2s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%,100% { transform: rotate(-10deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.install-text strong {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.install-text span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.install-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 0 16px var(--glow);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.install-btn:hover { transform: scale(1.05); box-shadow: 0 0 24px var(--glow); }
+
+.install-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── HEADER ── */
+header {
+  position: relative; z-index: 10;
+  padding: 0 5vw;
+  background: linear-gradient(180deg, #0a0f1edd 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+  margin-top: 56px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  gap: 12px;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1rem, 3.5vw, 1.6rem);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-plane {
+  font-size: 1.5em;
+  display: inline-block;
+  animation: flyShake 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+@keyframes flyShake {
+  0%,100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-4px) rotate(-5deg); }
+}
+
+.logo .r { color: var(--accent); }
+.logo .w { color: #fff; }
+
+/* Social links in nav */
+.nav-socials {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.soc-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: all 0.2s;
+  position: relative;
+}
+
+.soc-btn:hover { transform: translateY(-2px); }
+.soc-yt   { border-color: #ff000044; } .soc-yt:hover   { background: #ff000033; box-shadow: 0 0 12px #ff000044; }
+.soc-tg   { border-color: #0088cc44; } .soc-tg:hover   { background: #0088cc22; box-shadow: 0 0 12px #0088cc44; }
+.soc-ig   { border-color: #e1306c44; } .soc-ig:hover   { background: #e1306c22; box-shadow: 0 0 12px #e1306c44; }
+.soc-wa   { border-color: #25d36644; } .soc-wa:hover   { background: #25d36622; box-shadow: 0 0 12px #25d36644; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; z-index: 5;
+  text-align: center;
+  padding: clamp(36px, 7vw, 70px) 5vw clamp(28px, 4vw, 44px);
+  overflow: hidden;
+}
+
+.hero::before {
+  content:'';
+  position: absolute;
+  top: -60px; left: 50%; transform: translateX(-50%);
+  width: min(700px, 120vw); height: 360px;
+  background: radial-gradient(ellipse, #ff3c3c14 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.plane-fly {
+  position: absolute;
+  top: 15%; left: -120px;
+  font-size: 2.2rem;
+  animation: flyAcross 9s linear infinite;
+  filter: drop-shadow(0 0 12px var(--accent));
+  z-index: 1; pointer-events: none;
+}
+
+@keyframes flyAcross {
+  0%   { left:-150px; opacity:0; }
+  5%   { opacity:1; }
+  95%  { opacity:1; }
+  100% { left:110vw; opacity:0; }
+}
+
+.hero-tag {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent), #ff7b00);
+  color: #fff;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 5px 16px; border-radius: 2px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  animation: fadeDown 0.6s ease both;
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.8rem, 7vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  animation: fadeDown 0.7s ease both 0.1s;
+}
+
+.hero h1 .red  { color: var(--accent); text-shadow: 0 0 30px var(--accent); }
+.hero h1 .gold { color: var(--gold); }
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  color: var(--muted);
+  margin: 14px auto 0;
+  max-width: 560px; line-height: 1.65;
+  animation: fadeDown 0.8s ease both 0.2s;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 5vw, 55px);
+  margin-top: 32px;
+  animation: fadeDown 0.9s ease both 0.3s;
+}
+
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 900;
+  color: var(--accent); line-height: 1;
+}
+.stat-num.g { color: var(--gold); }
+.stat-num.b { color: var(--blue); }
+.stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
+
+@keyframes fadeDown {
+  from { opacity:0; transform: translateY(-18px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ── SECTION COMMON ── */
+.section {
+  position: relative; z-index: 5;
+  padding: 20px 5vw 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.sec-head h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.9rem, 2.8vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.sec-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+
+.sec-icon {
+  width: 34px; height: 34px;
+  border-radius: 6px;
+  display: grid; place-items: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+
+/* ── YOUTUBE ── */
+.yt-wrap {
+  position: relative;
+  width: 100%; padding-bottom: 56.25%;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 40px #ff3c3c1a, 0 16px 50px #00000070;
+}
+
+.yt-wrap iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.yt-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: #ff0000dd;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 3px 9px; border-radius: 3px;
+  z-index: 2; pointer-events: none;
+}
+
+/* ── BUSINESS CARDS ── */
+.biz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 18px;
+}
+
+.biz-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.biz-card::before {
+  content:'';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  opacity: 0; transition: opacity 0.3s;
+}
+
+.biz-card.english::before { background: linear-gradient(90deg, var(--blue), var(--green)); }
+.biz-card.website::before { background: linear-gradient(90deg, var(--accent), var(--gold)); }
+
+.biz-card:hover { transform: translateY(-4px); }
+.biz-card.english:hover { border-color: #00c6ff44; box-shadow: 0 8px 30px #00c6ff14; }
+.biz-card.website:hover { border-color: #ff3c3c44; box-shadow: 0 8px 30px #ff3c3c14; }
+.biz-card:hover::before { opacity: 1; }
+
+.biz-emoji { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+
+.biz-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.biz-card.english h3 { color: var(--blue); }
+.biz-card.website h3 { color: var(--gold); }
+
+.biz-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.biz-card p strong { color: var(--text); }
+
+.biz-points {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.biz-points li {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 5px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.biz-points li::before { content: '✓'; flex-shrink: 0; }
+.biz-card.english .biz-points li::before { color: var(--green); }
+.biz-card.website .biz-points li::before { color: var(--gold); }
+
+.biz-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  border: none; cursor: pointer;
+}
+
+.biz-btn.blue-btn {
+  background: linear-gradient(135deg, var(--blue), #0088bb);
+  color: #fff;
+  box-shadow: 0 4px 18px #00c6ff33;
+}
+
+.biz-btn.blue-btn:hover { box-shadow: 0 4px 28px #00c6ff55; transform: translateY(-1px); }
+
+.biz-btn.gold-btn {
+  background: linear-gradient(135deg, #ffd700, #ff9d00);
+  color: #000;
+  font-weight: 800;
+  box-shadow: 0 4px 18px #ffd70033;
+}
+
+.biz-btn.gold-btn:hover { box-shadow: 0 4px 28px #ffd70055; transform: translateY(-1px); }
+
+.price-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ff9d00);
+  color: #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem; font-weight: 900;
+  padding: 6px 16px; border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  position: relative; z-index: 5;
+  text-align: center;
+  padding: 8px 0 24px;
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: 0.4;
+  letter-spacing: 8px;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:.25;} 50%{opacity:.6;} }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  gap: 8px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.f-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 6px 14px; border-radius: 4px;
+  cursor: pointer; transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.f-btn:hover, .f-btn.active {
+  background: var(--accent); border-color: var(--accent);
+  color: #fff; box-shadow: 0 0 14px var(--glow);
+}
+
+.games-count {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.games-count span { color: var(--accent); }
+
+/* ── GAMES GRID ── */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 14px;
+}
+
+.game-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  position: relative; overflow: hidden;
+  transition: all 0.25s ease;
+  animation: cardIn 0.4s ease both;
+}
+
+.game-card::before {
+  content:'';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+
+.game-card:hover {
+  border-color: #ff3c3c44;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px #ff3c3c14;
+}
+
+.game-card:hover::before { opacity: 1; }
+
+@keyframes cardIn {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.c-num {
+  position: absolute;
+  top: 12px; right: 14px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  color: var(--border);
+}
+
+.c-top {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 12px;
+}
+
+.c-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: grid; place-items: center;
+  font-size: 1.4rem; flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--card2);
+}
+
+.c-info h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.82rem; font-weight: 700;
+  color: #fff; letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  padding-right: 30px;
+}
+
+.c-meta { display: flex; align-items: center; gap: 6px; }
+
+.badge {
+  font-size: 0.64rem; font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 2px 7px; border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.b-spin  { background: #ff3c3c22; color: var(--accent); border: 1px solid #ff3c3c33; }
+.b-rummy { background: #00c6ff22; color: var(--blue);   border: 1px solid #00c6ff33; }
+.b-slots { background: #ffd70022; color: var(--gold);   border: 1px solid #ffd70033; }
+.b-777   { background: #b060ff22; color: var(--purple); border: 1px solid #b060ff33; }
+.b-game  { background: #00e67622; color: var(--green);  border: 1px solid #00e67633; }
+
+.c-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.c-links.one-link { grid-template-columns: 1fr; }
+
+.lnk {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px;
+  padding: 8px 8px;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lnk-web {
+  background: linear-gradient(135deg, #1a2a4a, #0d1a30);
+  border: 1px solid #2a4a7a;
+  color: var(--blue);
+}
+
+.lnk-web:hover {
+  background: linear-gradient(135deg, var(--blue), #0088bb);
+  border-color: var(--blue); color: #fff;
+  box-shadow: 0 0 14px #00c6ff44;
+}
+
+.lnk-apk {
+  background: linear-gradient(135deg, #2a1a1a, #1a0d0d);
+  border: 1px solid #7a2a2a;
+  color: var(--accent);
+}
+
+.lnk-apk:hover {
+  background: linear-gradient(135deg, var(--accent), #cc2200);
+  border-color: var(--accent); color: #fff;
+  box-shadow: 0 0 14px var(--glow);
+}
+
+/* ── REFER SECTION ── */
+.refer-section {
+  position: relative; z-index: 5;
+  padding: 10px 5vw 50px;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.refer-box {
+  background: linear-gradient(135deg, #0d1528, #1a0d0d);
+  border: 1px solid #ff3c3c44;
+  border-radius: 14px;
+  padding: clamp(24px, 4vw, 40px);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+.refer-box::before {
+  content:'';
+  position: absolute;
+  top: -50%; left: 50%; transform: translateX(-50%);
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #ff3c3c0d, transparent 70%);
+  pointer-events: none;
+}
+
+.refer-plane {
+  font-size: 3rem;
+  display: block; margin: 0 auto 16px;
+  animation: flyShake 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 16px var(--accent));
+}
+
+.refer-box h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1rem, 3.5vw, 1.8rem);
+  font-weight: 900; color: #fff;
+  margin-bottom: 12px;
+}
+
+.refer-box h2 .r { color: var(--accent); }
+
+.refer-box p {
+  font-size: clamp(0.88rem, 2vw, 1.05rem);
+  color: var(--muted);
+  max-width: 600px; margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+.refer-box p strong { color: var(--text); }
+
+.refer-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 13px 28px; border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 24px var(--glow);
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.refer-btn:hover { transform: scale(1.04); box-shadow: 0 0 36px var(--glow); }
+
+/* ── SOCIAL FOOTER STRIP ── */
+.social-strip {
+  position: relative; z-index: 5;
+  padding: 10px 5vw 20px;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.soc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+}
+
+.soc-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.soc-card:hover { transform: translateY(-2px); }
+
+.soc-card-icon { font-size: 1.8rem; }
+.soc-card-info strong { display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; }
+.soc-card-info span { font-size: 0.75rem; color: var(--muted); }
+
+.soc-card.yt  { border-color: #ff000033; } .soc-card.yt:hover  { border-color: #ff000077; box-shadow: 0 4px 20px #ff000022; }
+.soc-card.tg  { border-color: #0088cc33; } .soc-card.tg:hover  { border-color: #0088cc77; box-shadow: 0 4px 20px #0088cc22; }
+.soc-card.ig  { border-color: #e1306c33; } .soc-card.ig:hover  { border-color: #e1306c77; box-shadow: 0 4px 20px #e1306c22; }
+.soc-card.wa  { border-color: #25d36633; } .soc-card.wa:hover  { border-color: #25d36677; box-shadow: 0 4px 20px #25d36622; }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 5;
+  border-top: 1px solid var(--border);
+  padding: 24px 5vw;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.foot-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem; font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  position: relative; z-index: 5;
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 5vw 30px;
+}
+
+.disc-box {
+  background: #1a0a0a44;
+  border: 1px solid #ff3c3c22;
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.disc-box strong { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .c-links { grid-template-columns: 1fr; }
+  .hero-stats { gap: 16px; }
+  .nav-socials .soc-btn { width: 30px; height: 30px; font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- PWA INSTALL BANNER -->
+<div id="installBanner">
+  <div class="install-left">
+    <div class="install-icon">✈</div>
+    <div class="install-text">
+      <strong>INSTALL NOW – Play Aviator App</strong>
+      <span>Home screen pe add karo – free, fast, offline</span>
+    </div>
+  </div>
+  <button class="install-btn" id="installBtn">📲 Install</button>
+  <button class="install-close" id="closeBanner" title="Close">✕</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <a href="#" class="logo">
+      <span class="logo-plane">✈</span>
+      <span class="r">PLAY</span><span class="w">AVIATOR</span>
+    </a>
+    <div class="nav-socials">
+      <a href="https://youtube.com/@playaviator_2026?si=LIHV1mBHwJFNvsZG" target="_blank" class="soc-btn soc-yt" title="YouTube">▶</a>
+      <a href="https://t.me/+-vqDdRBqepM5N2M1" target="_blank" class="soc-btn soc-tg" title="Telegram">✈</a>
+      <a href="https://www.instagram.com/aviatorgamer?igsh=eGozNDcycncyMzZk" target="_blank" class="soc-btn soc-ig" title="Instagram">📸</a>
+      <a href="https://t.me/+-vqDdRBqepM5N2M1" target="_blank" class="soc-btn soc-wa" title="WhatsApp">💬</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="plane-fly">✈</div>
+  <div class="hero-tag">✈ 51 Aviator Games — Sab Ek Jagah</div>
+  <h1>
+    <span class="red">BHATKNA</span> BAND,<br>
+    <span class="gold">JEENA</span> SHURU ✦
+  </h1>
+  <p class="hero-sub">India ke 51 popular Aviator Games ek jagah. Website link aur direct APK download — future mein aane wale games bhi yahan update honge.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">51</div><div class="stat-label">Games</div></div>
+    <div class="stat"><div class="stat-num g">Always</div><div class="stat-label">Updated</div></div>
+    <div class="stat"><div class="stat-num b">APK</div><div class="stat-label">+ Website</div></div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section class="section" style="padding-bottom: 30px;">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:#ff000018; border:1px solid #ff000033;">▶</div>
+    <h2>App Install Kaise Karen – Watch Now</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="yt-wrap">
+    <div class="yt-badge">▶ HOW TO INSTALL</div>
+    <!-- Replace with your actual YouTube video ID -->
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+      title="Aviator App Install Guide"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<div class="divider">✦ · · · ✦ · · · ✦</div>
+
+<!-- TWO BUSINESSES -->
+<section class="section" style="padding-bottom: 30px;">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:#ffd70018; border:1px solid #ffd70033;">💡</div>
+    <h2>Apna Future Secure Karo</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="biz-grid">
+
+    <!-- ENGLISH LEARNING -->
+    <div class="biz-card english">
+      <span class="biz-emoji">🗣️</span>
+      <h3>Luck Pe Mat Jhuko –<br>English Seekho, Life Badlo</h3>
+      <p>In games mein luck ke alawa kuch nahi milta. Lekin <strong>English bolna seekhna ek skill hai</strong> — jo hamesha kaam aayegi. Job mein, business mein, zindagi mein.</p>
+      <ul class="biz-points">
+        <li>Real skill jo future secure kare</li>
+        <li>Asani se ghar baithe seekho</li>
+        <li>Job, freelance, business — sab mein kaam aaye</li>
+        <li>Free mein start karo aaj hi</li>
+      </ul>
+      <a href="https://learnenglish.pages.dev" target="_blank" class="biz-btn blue-btn">
+        🌐 Start Learning Free →
+      </a>
+    </div>
+
+    <!-- WEBSITE SERVICE -->
+    <div class="biz-card website">
+      <span class="biz-emoji">🌐</span>
+      <h3>Apne Naam Ki Website Pao –<br>Sirf ₹69 Mein!</h3>
+      <div class="price-badge">₹69 Only</div>
+      <p>Yahan aate ho toh apni khud ki website kyu nahi? <strong>Sirf ₹69 mein</strong> apne naam ki website pao — sare social media links ke saath, aur future mein aane wale sabhi Aviator games bhi automatically update honge!</p>
+      <ul class="biz-points">
+        <li>Tumhare apne naam ki website</li>
+        <li>Sare social media links ek jagah</li>
+        <li>Future ke sabhi naaye games auto-update</li>
+        <li>Ek baar payment, life-time benefit</li>
+      </ul>
+      <a href="https://wa.me/+91XXXXXXXXXX?text=Hi%20bhai%2C%20mujhe%2069rs%20wali%20website%20chahiye" target="_blank" class="biz-btn gold-btn">
+        💬 WhatsApp Karo – ₹69 Website →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider">✦ · · · ✦ · · · ✦</div>
+
+<!-- 51 GAMES -->
+<section class="section" id="games">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:#ff3c3c18; border:1px solid #ff3c3c33;">🎮</div>
+    <h2>51 Aviator Games – Full List</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="f-btn active" onclick="filter('all',this)">All 51</button>
+    <button class="f-btn" onclick="filter('spin',this)">🎰 Spin</button>
+    <button class="f-btn" onclick="filter('rummy',this)">🃏 Rummy</button>
+    <button class="f-btn" onclick="filter('slots',this)">🎰 Slots</button>
+    <button class="f-btn" onclick="filter('777',this)">7️⃣ 777</button>
+    <button class="f-btn" onclick="filter('game',this)">🎮 Other</button>
+  </div>
+
+  <div class="games-count">Showing <span id="countNum">51</span> games</div>
+  <div class="games-grid" id="gamesGrid"></div>
+</section>
+
+<!-- REFER SECTION -->
+<section class="refer-section">
+  <div class="refer-box">
+    <span class="refer-plane">✈</span>
+    <h2>Ab Bhatkne Ki Zarurat <span class="r">Nahi!</span></h2>
+    <p>
+      51 Aviator games ek jagah — aur <strong>future mein aane wala har naya game bhi yahan update kiya jayega.</strong>
+      Ye link apne dosto ko share karo, group mein bhejo — sabki help karo.
+    </p>
+    <a href="https://playaviator.pages.dev" target="_blank" class="refer-btn">
+      🔗 playaviator.pages.dev — Share Karo
+    </a>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<section class="social-strip">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:#ffffff10; border:1px solid #ffffff20;">📲</div>
+    <h2>Hamare Social Media Join Karo</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="soc-grid">
+    <a href="https://youtube.com/@playaviator_2026?si=LIHV1mBHwJFNvsZG" target="_blank" class="soc-card yt">
+      <span class="soc-card-icon">▶️</span>
+      <div class="soc-card-info"><strong>YouTube</strong><span>@playaviator_2026</span></div>
+    </a>
+    <a href="https://t.me/+-vqDdRBqepM5N2M1" target="_blank" class="soc-card tg">
+      <span class="soc-card-icon">✈️</span>
+      <div class="soc-card-info"><strong>Telegram</strong><span>Join Channel</span></div>
+    </a>
+    <a href="https://www.instagram.com/aviatorgamer?igsh=eGozNDcycncyMzZk" target="_blank" class="soc-card ig">
+      <span class="soc-card-icon">📸</span>
+      <div class="soc-card-info"><strong>Instagram</strong><span>@aviatorgamer</span></div>
+    </a>
+    <a href="https://t.me/+-vqDdRBqepM5N2M1" target="_blank" class="soc-card wa">
+      <span class="soc-card-icon">💬</span>
+      <div class="soc-card-info"><strong>WhatsApp</strong><span>Group Join Karo</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer">
+  <div class="disc-box">
+    <strong>⚠ Disclaimer:</strong> Yeh website sirf informational aur affiliate purpose ke liye hai. Yahan di gayi games India mein kuch states mein restricted ho sakti hain. Khud ke risk par khelen. 18+ only. Responsible gaming ki practice karein. Paison se zyada zaruri hai teri zindagi — English seekho, skill banao.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">✈ PLAYAVIATOR</div>
+  <p>India's #1 Aviator Games Directory · 51 Games · Always Updated</p>
+  <p style="margin-top:6px;">
+    <a href="https://youtube.com/@playaviator_2026" target="_blank" style="color:var(--muted);text-decoration:none;margin:0 6px;">YouTube</a> ·
+    <a href="https://t.me/+-vqDdRBqepM5N2M1" target="_blank" style="color:var(--muted);text-decoration:none;margin:0 6px;">Telegram</a> ·
+    <a href="https://www.instagram.com/aviatorgamer" target="_blank" style="color:var(--muted);text-decoration:none;margin:0 6px;">Instagram</a>
+  </p>
+  <p style="margin-top:8px;font-size:0.72rem;">© 2024 PlayAviator · playaviator.pages.dev</p>
+</footer>
+
+<script>
+// ─── GAMES DATA ───
+const GAMES = [
+  { n:1,  name:"Spin Winner",   icon:"🎰", cat:"spin",  web:"https://4spinwinner.com/?code=QVTN9XXHRXX&t=1774424035",                          apk:"https://d239scxi88rnts.cloudfront.net/spinwinner_9U7S03S8F0P.apk" },
+  { n:2,  name:"Yono Slots",    icon:"🎰", cat:"slots", web:"https://www.uonoslots.me/?code=PJB1SJQQVJX&t=1774424106",                          apk:null },
+  { n:3,  name:"Jaiho Slots",   icon:"🎯", cat:"slots", web:"https://www.jaihoslots20.com/?code=EGPSP83KWJA&t=1774424583",                      apk:"https://dr4xbbzzccn7s.cloudfront.net/Agent.apk" },
+  { n:4,  name:"Gogo Rummy 3",  icon:"🃏", cat:"rummy", web:"https://www.gogogo777.space/?code=8FWX13K3PC7&t=1774437628",                       apk:null },
+  { n:5,  name:"YN 777",        icon:"7️⃣", cat:"777",   web:"https://www.y754.com/?code=4SWHWSL45RF&t=1774438541",                              apk:null },
+  { n:6,  name:"Spin Crush",    icon:"💥", cat:"spin",  web:"https://1setyhfzxgujlaqwer4a.Safelyearnmillionsbysharingonepersonaqfxzqybw.com/?code=ADE9SSZK6WT&t=1774439009", apk:"https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk" },
+  { n:7,  name:"Bingo 101",     icon:"🎲", cat:"game",  web:"https://bingo101.vip/?code=6YFYGZWVFD3&t=1774439174",                              apk:null },
+  { n:8,  name:"Rumble Rummy",  icon:"🃏", cat:"rummy", web:"https://www.rumblerummy1.vip/?code=UC0FHRE4QYX&t=1774435879",                      apk:null },
+  { n:9,  name:"Ind Rummy",     icon:"🃏", cat:"rummy", web:"https://indrummys.com/?code=2BA3KJ41QPN&t=1774424773",                             apk:null },
+  { n:10, name:"Ind Club",      icon:"♣️", cat:"game",  web:"https://www.indcluba.com/?code=34UXJLNZQ2R&t=1774423281",                          apk:null },
+  { n:11, name:"Club INR",      icon:"💰", cat:"game",  web:"https://clubinr.cc/?code=9VCE1QS6HV4&t=1774441104",                                apk:null },
+  { n:12, name:"Bet 213",       icon:"🎯", cat:"game",  web:"https://www.bet213.co/?code=2QTN4RUBDBK&t=1774445930",                             apk:null },
+  { n:13, name:"Ind Slots",     icon:"🎰", cat:"slots", web:"https://indslots5.com/?code=G75ACRYCU3L&t=1774423959",                             apk:"https://d1bjlwgcobo9al.cloudfront.net/16/41428292/indslots_T2QDFH0P4AA.apk" },
+  { n:14, name:"Spin 101",      icon:"🔄", cat:"spin",  web:"https://101spin.app/?code=P4CHBSTBC5P&t=1774438665",                               apk:"https://spin101-z.vip/" },
+  { n:15, name:"Love Rummy",    icon:"❤️", cat:"rummy", web:"https://www.loverummy99.com/?code=AFCBJFGBLUD&t=1774425291",                       apk:"https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk" },
+  { n:16, name:"Neta VIP 7",    icon:"👑", cat:"777",   web:"https://neta9.vip/?code=DR0ZNY2U7VE&t=1774446163",                                 apk:null },
+  { n:17, name:"Hi Rummy",      icon:"🃏", cat:"rummy", web:"https://www.hirummy-agent.top/?code=RX3LCJW98XJ&t=1774440429",                     apk:null },
+  { n:18, name:"INR Rummy",     icon:"💵", cat:"rummy", web:"https://inrrummy1.win/?code=8QUF66UMVPZ&t=1774440692",                             apk:null },
+  { n:19, name:"789 Jackpot",   icon:"🎰", cat:"game",  web:"https://789jackpots789.com/?code=J7Z7XVJF7ZU&t=1774423054",                        apk:null },
+  { n:20, name:"MBM Bet",       icon:"🎯", cat:"game",  web:"https://www.mbmbet29.com/?code=UPHVYGWWSRT&t=1774423124",                          apk:null },
+  { n:21, name:"Spin Gold",     icon:"✨", cat:"spin",  web:"https://spingoldappsagent.com/?code=HLTZ28XHA8X&t=1774423566",                     apk:null },
+  { n:22, name:"Slots Winner",  icon:"🏆", cat:"slots", web:"https://slotwinner.app/?code=MU4JWC3HQN2&t=1774423874",                            apk:null },
+  { n:23, name:"Jaiho Rummy",   icon:"🃏", cat:"rummy", web:"https://jaihorummybonus.com/?code=E74ZXULKTQJ&t=1774424173",                       apk:null },
+  { n:24, name:"Top Rummy",     icon:"🥇", cat:"rummy", web:"https://www.toprummy.cc/?code=7K9ERR3JBFL&t=1774424248",                           apk:null },
+  { n:25, name:"Spin 777",      icon:"7️⃣", cat:"777",   web:"http://spin777-j.com/?code=7V9KLVE8MYF&t=1774424524",                             apk:null },
+  { n:26, name:"Rummy Ludo",    icon:"🎲", cat:"rummy", web:"https://rummyludogame.vip/?code=UWPU7XMPC56&t=1774438149",                         apk:null },
+  { n:27, name:"Yono Games",    icon:"🎮", cat:"game",  web:"https://yonogamesagent.com/?code=GK1DW95E93J&t=1774422715",                        apk:"https://d3aeng3pmq21ul.cloudfront.net/Agent.apk" },
+  { n:28, name:"Saga Slots",    icon:"⚔️", cat:"slots", web:"https://www.sagaslots66.com/?code=0QHNMZJUXLA&t=1774422800",                       apk:null },
+  { n:29, name:"101Z",          icon:"💯", cat:"game",  web:"https://101z17.com/?code=398KZGYBCNA&t=1774422974",                                apk:null },
+  { n:30, name:"Aiho 777",      icon:"7️⃣", cat:"777",   web:"https://www.mbmbet29.com/?code=UPHVYGWWSRT&t=1774423124",                          apk:null },
+  { n:31, name:"Rummy 91",      icon:"🃏", cat:"rummy", web:"https://www.rummy91m.bet/?code=4KTME1Z42S4&t=1774423395",                          apk:"http://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk" },
+  { n:32, name:"Yono VIP",      icon:"👑", cat:"game",  web:"https://yonovipc.com/?code=9U8QHZ3XL6D&t=1774423808",                              apk:null },
+  { n:33, name:"Maha Games",    icon:"🎰", cat:"game",  web:"https://mahagames.casino/?code=J241ANGHEUQ&t=1774424379",                          apk:null },
+  { n:34, name:"Joy Rummy",     icon:"😊", cat:"rummy", web:"https://www.joyrummy.xyz/?code=J5KRHQ36DZX&t=1774424847",                          apk:"https://d1qmkj8331jnb1.cloudfront.net/joyrummy_DC9HLVEN6Q0.apk" },
+  { n:35, name:"Hindi 777",     icon:"7️⃣", cat:"777",   web:"https://www.hindi777agent.com/?code=7LFF2ERF36B&t=1774424914",                     apk:null },
+  { n:36, name:"Rummy 888",     icon:"🃏", cat:"rummy", web:"https://rummy888vip46.com/?code=TPUVA75CPYT&t=1774425158",                          apk:null },
+  { n:37, name:"OK Rummy",      icon:"✅", cat:"rummy", web:"https://www.okrummy22.com/?code=H2GWCJ9HHSV&t=1774437778",                         apk:null },
+  { n:38, name:"Boss Rummy",    icon:"👔", cat:"rummy", web:"https://www.bossrummytt.com/?code=9HFW2SBSMQB&t=1774437888",                       apk:null },
+  { n:39, name:"Game Rummy",    icon:"🃏", cat:"rummy", web:null,                                                                                apk:null },
+  { n:40, name:"Rummy 77",      icon:"🃏", cat:"rummy", web:"https://rummy77a.com/?code=F3VLY67SWVK&t=1774439732",                              apk:null },
+  { n:41, name:"777 Games",     icon:"7️⃣", cat:"777",   web:"https://www.777draw.com/?code=H53BMWBFRM5&t=1774439898",                           apk:null },
+  { n:42, name:"Yes Spin",      icon:"🔄", cat:"spin",  web:"https://www.yesspinbbb.com/?code=47T2242CXCB&t=1774440142",                        apk:"https://d3r0e45bruvpkx.cloudfront.net/YesSpinAgent.apk" },
+  { n:43, name:"Jaiho Arcade",  icon:"🕹️", cat:"game",  web:"https://www.jaihoarcade38.com/?code=AZDJF1JX2AU&t=1774440852",                     apk:"https://dvrwg846yc8hm.cloudfront.net/JaihoArcade_Agent.apk" },
+  { n:44, name:"Slots Spin",    icon:"🎰", cat:"slots", web:"https://slotsspinl.com/?code=XJBFYUTGG2N&t=1774423485",                            apk:null },
+  { n:45, name:"Jaiho Spin",    icon:"🎯", cat:"spin",  web:"https://19jaihospin.com/?code=7TAVSV93MYH&t=1774423667",                           apk:"https://d3agst66ufh5im.cloudfront.net/jaihospin_SHGHKXQDR3G.apk" },
+  { n:46, name:"567 Slots",     icon:"🎰", cat:"slots", web:"https://567slots-agent.cc/?code=WTPL8KBX4CG&t=1774423733",                         apk:null },
+  { n:47, name:"Share Slots",   icon:"🔗", cat:"slots", web:"https://share377.com/?code=YAZUJ1NYY4Q&t=1774424453",                              apk:null },
+  { n:48, name:"Ever 777",      icon:"7️⃣", cat:"777",   web:"https://ever777i.top/?code=ARH5Y27V89S&t=1774424654",                              apk:null },
+  { n:49, name:"Jaiho Win",     icon:"🏅", cat:"game",  web:"https://www.jaihowin16.com/?code=1XNXPSLRL4S&t=1774424712",                        apk:null },
+  { n:50, name:"ABC Rummy",     icon:"🃏", cat:"rummy", web:"https://www.abcrummy99.com/?code=75CLM3UCH7K&t=1774437486",                        apk:"https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk" },
+  { n:51, name:"Yono Arcade",   icon:"🕹️", cat:"game",  web:"https://yonoofficial3.com/?code=F55Q5G2AGV1&t=1774424302",                         apk:"https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk" },
+];
+
+const catBadge = {
+  spin:  { cls:'b-spin',  label:'🎰 Spin'  },
+  rummy: { cls:'b-rummy', label:'🃏 Rummy' },
+  slots: { cls:'b-slots', label:'🎰 Slots' },
+  '777': { cls:'b-777',   label:'7️⃣ 777'  },
+  game:  { cls:'b-game',  label:'🎮 Game'  },
+};
+
+function renderGames(cat) {
+  const list = cat === 'all' ? GAMES : GAMES.filter(g => g.cat === cat);
+  document.getElementById('countNum').textContent = list.length;
+  const grid = document.getElementById('gamesGrid');
+  grid.innerHTML = list.map((g, i) => {
+    const b = catBadge[g.cat] || catBadge.game;
+    const hasWeb = g.web && g.web !== null;
+    const hasApk = g.apk && g.apk !== null;
+    const oneLink = (hasWeb && !hasApk) || (!hasWeb && hasApk);
+    let links = '';
+    if (hasWeb) links += `<a class="lnk lnk-web" href="${g.web}" target="_blank" rel="noopener">🌐 Website</a>`;
+    if (hasApk) links += `<a class="lnk lnk-apk" href="${g.apk}" target="_blank" rel="noopener">📲 APK</a>`;
+    if (!hasWeb && !hasApk) links += `<span class="lnk lnk-web" style="opacity:.4;cursor:default;">🕐 Coming Soon</span>`;
+    return `
+    <div class="game-card" style="animation-delay:${Math.min(i,20)*0.03}s">
+      <div class="c-num">#${String(g.n).padStart(2,'0')}</div>
+      <div class="c-top">
+        <div class="c-icon">${g.icon}</div>
+        <div class="c-info">
+          <h3>${g.name}</h3>
+          <div class="c-meta">
+            <span class="badge ${b.cls}">${b.label}</span>
+          </div>
+        </div>
+      </div>
+      <div class="c-links${oneLink && (hasWeb || hasApk) ? ' one-link' : ''}">${links}</div>
+    </div>`;
+  }).join('');
+}
+
+function filter(cat, btn) {
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGames(cat);
+}
+
+renderGames('all');
+
+// ─── PWA INSTALL ───
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    if (outcome === 'accepted') hideBanner();
+  } else {
+    // Fallback instructions
+    alert('📲 Install karne ke liye:\niPhone: Share button > "Add to Home Screen"\nAndroid: Browser menu (⋮) > "Add to Home Screen"');
+  }
+});
+
+document.getElementById('closeBanner').addEventListener('click', () => {
+  hideBanner();
+  sessionStorage.setItem('bannerClosed', '1');
+});
+
+function hideBanner() {
+  const b = document.getElementById('installBanner');
+  b.style.transform = 'translateY(-100%)';
+  b.style.transition = 'transform 0.3s ease';
+  setTimeout(() => { b.style.display = 'none'; document.querySelector('header').style.marginTop = '0'; }, 300);
+}
+
+// Don't show banner if already dismissed this session
+if (sessionStorage.getItem('bannerClosed')) {
+  document.getElementById('installBanner').style.display = 'none';
+  document.querySelector('header').style.marginTop = '0';
+}
+
+// Hide banner if already installed (standalone mode)
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+  document.getElementById('installBanner').style.display = 'none';
+  document.querySelector('header').style.marginTop = '0';
+}
+
+// ─── SERVICE WORKER ───
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
